@@ -1,0 +1,246 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&display=swap");
+
+/* Basic Reset & Body Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #141414;
+  color: #e5e5e5;
+}
+
+/* Header & Logo */
+header {
+  padding: 20px 50px;
+  background-color: #141414;
+}
+
+.logo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  color: #e50914;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+/* Hero Section */
+.hero {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+    url("https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=1000")
+      no-repeat center center/cover;
+}
+
+.hero h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+
+#search-input {
+  flex-grow: 1;
+  padding: 15px;
+  border: 1px solid #333;
+  background-color: #222;
+  color: #fff;
+  border-radius: 5px 0 0 5px;
+  font-size: 1rem;
+}
+
+#search-button {
+  padding: 15px 20px;
+  border: none;
+  background-color: #e50914;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #f61a25;
+}
+
+/* Movies Section */
+#movies-container {
+  padding: 40px 50px;
+}
+
+#movies-header {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  border-left: 5px solid #e50914;
+  padding-left: 15px;
+}
+
+#movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.movie-card {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-card .movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+  padding: 50px 15px 15px 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+}
+
+.movie-card:hover .movie-info {
+  opacity: 1;
+}
+
+.movie-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* Movie Details Page Styles */
+.back-button {
+  display: inline-block;
+  margin: 20px 50px;
+  text-decoration: none;
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #f61a25;
+}
+
+#movie-details-container {
+  display: flex;
+  padding: 20px 50px 50px 50px;
+  gap: 40px;
+}
+
+#movie-details-container img {
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.details-content h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.details-content .tagline {
+  font-style: italic;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.details-content h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-left: 3px solid #e50914;
+  padding-left: 10px;
+}
+
+.details-content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Loader Animation & Error Messages */
+.loader {
+  border: 5px solid #333;
+  border-top: 5px solid #e50914;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 50px auto;
+  display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  color: #999;
+  text-align: center;
+  padding: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header,
+  #movies-container,
+  .back-button,
+  #movie-details-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero h2 {
+    font-size: 3rem;
+  }
+
+  #movie-details-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
